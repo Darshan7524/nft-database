@@ -17,10 +17,10 @@ const nftSchema = mongoose.Schema(
         type : Number,
         required : true,
         },
-        collection: {
+        collections: {
             type : String,
-            required : true,
-            },
+            default : "Art",
+        },
         artist: {
             type : String,
             required : true,
