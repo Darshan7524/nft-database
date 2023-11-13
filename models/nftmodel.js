@@ -32,7 +32,7 @@ const nftSchema = mongoose.Schema(
         },
         owner : {
             type : String,
-            required : true,
+            default : null,
         },
         createdDate: {
             type: Date,  
