@@ -23,7 +23,7 @@ const nftSchema = mongoose.Schema(
         },
         artist: {
             type : String,
-            required : true,
+            default : "artist_default",
         },
         
         imgurl : {
