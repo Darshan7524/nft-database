@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+// const collectionsarray[] = ["Art", "Sports",]
 const nftSchema = mongoose.Schema(
     {
         id : {
@@ -34,6 +35,10 @@ const nftSchema = mongoose.Schema(
             type : String,
             default : null,
         },
+        creator: {
+            type: String,
+            default : null,
+        },
         createdDate: {
             type: Date,  
             default: Date.now,  
@@ -44,7 +49,7 @@ const nftSchema = mongoose.Schema(
         },
         updatedDate: {
             type: Date,
-            default: Date.now,
+            default: null,
         },
         archived: {
             type: Boolean,  
