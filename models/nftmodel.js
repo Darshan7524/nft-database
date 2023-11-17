@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// const collectionsarray[] = ["Art", "Sports",]
 const nftSchema = mongoose.Schema(
     {
         id : {
