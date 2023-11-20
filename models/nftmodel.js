@@ -50,11 +50,11 @@ const nftSchema = mongoose.Schema(
             type: Date,
             default: null,
         },
-        archived: {
+        isarchived: {
             type: Boolean,  
             default: false,  
         },
-        listed: {
+        islisted: {
             type: Boolean,  
             default: false,  
         },
