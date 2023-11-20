@@ -33,11 +33,10 @@ router.get('/', async (req, res) => {
         console.log(error)
     }
  })
-router.get('/:nftid', async (req, res) => {
+router.get('/:nftid', async (req, res) => {     // the param , query are all optional you can exclude any of it
     try {
         const { owner, islisted, isarchived } = req.query;
         const id = req.params.nftid;
-        // const {owner} = req.query;
         console.log(owner + typeof(null));
         console.log(id + "is the id")
         const query = { 
