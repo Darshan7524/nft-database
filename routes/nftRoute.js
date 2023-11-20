@@ -35,15 +35,41 @@ router.get('/', async (req, res) => {
  })
 router.get('/:nftid', async (req, res) => {
     try {
-        // const { owner, listed, archived } = req.query;
+        const { owner, islisted, isarchived } = req.query;
         const id = req.params.nftid;
+        // const {owner} = req.query;
+        console.log(owner + typeof(null));
         console.log(id + "is the id")
-        const nfts = await nft.find({ id: id });
+        const query = { 
+            id: id,
+        };
+
+        if (owner !== undefined) {
+               if (owner === '' || owner === 'null') {   // this works for http://localhost:3002/nft/id456?owner=null or owner = empty space 
+                query.owner = null; 
+            } else {
+                query.owner = owner; 
+            }
+        }
+        if (isarchived !== undefined) {
+               if (isarchived == 'false')
+                query.isarchived = false
+            else query.isarchived = true
+        }
+        if (islisted !== undefined) {
+             if (islisted == 'false')
+                query.islisted = false
+            else query.islisted = true
+        }
+        console.log(query);
+          const nfts = await nft.find(query);
         res.json(nfts);
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
     }
 });
+
+
 
 export default router;
