@@ -69,6 +69,25 @@ router.get('/:nftid', async (req, res) => {     // the param , query are all opt
     }
 });
 
+router.patch('/:nftid', async (req, res) => {
+    try {
+        // const id = req.params.nftid;
+        const id = req.params.nftid.trim();
 
+        const updates = {
+            ...req.body,
+            updated : true,
+            updatedDate : new Date()
 
+        } 
+        console.log("req.body is" ,req.body , "\n updates is" , updates)
+        // updates.updated = true;
+        // updates.updatedDate = new Date();
+        const updatedNFT = await nft.findByIdAndUpdate(id, updates, { new: true });
+        res.json(updatedNFT);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 export default router;
